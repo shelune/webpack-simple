@@ -5,7 +5,7 @@ module.exports = {
   entry: __dirname + '/src/main.js',
   output: {
     path: __dirname + '/out',
-    publicPath: '/script/' + {{ name }},
+    publicPath: '/script/{{ name }}',
     filename: 'app.js'
   },
   module: {
@@ -22,7 +22,7 @@ module.exports = {
             'scss': 'vue-style-loader!css-loader!sass-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
             {{/sass}}
-          }
+          },
           // other vue-loader options go here
           postcss: [require('postcss-cssnext')]
         }

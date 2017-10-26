@@ -23,6 +23,6 @@ const router = new VueRouter({
 new Vue({
   i18n,
   router,
-  el: '#' + {{ name }},
+  el: '#{{ name }}',
   render: h => h(App)
 })

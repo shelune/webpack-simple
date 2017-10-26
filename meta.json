@@ -18,7 +18,7 @@
     "sass": {
        "type": "confirm",
        "message": "Use sass?",
-       "default": false
+       "default": true
     },
     "jquery": {
       "type": "confirm",

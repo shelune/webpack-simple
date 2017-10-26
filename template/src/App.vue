@@ -27,6 +27,7 @@ export default {
 }
 </script>
 
-<style{{#sass}} lang="scss"{{/sass}}>
+<style lang="scss">
+@import "./style/_shared.scss";
 
 </style>

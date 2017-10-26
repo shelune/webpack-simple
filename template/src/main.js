@@ -20,9 +20,22 @@ const router = new VueRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  console.log('from', from)
+  console.log('to', to)
+  if (to.name) {
+    document.body.classList.add('overlay-opened')
+  }
+
+  if (to.path === '/') {
+    document.body.classList.remove('overlay-opened')
+  }
+  next()
+})
+
 new Vue({
   i18n,
   router,
-  el: '#{{ name }}',
+  el: '#{{name}}',
   render: h => h(App)
 })

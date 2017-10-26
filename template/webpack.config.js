@@ -2,11 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: __dirname + '/src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    path: __dirname + '/out',
+    publicPath: '/script/' + {{ name }},
+    filename: 'app.js'
   },
   module: {
     rules: [
@@ -24,6 +24,7 @@ module.exports = {
             {{/sass}}
           }
           // other vue-loader options go here
+          postcss: [require('postcss-cssnext')]
         }
       },
       {
@@ -47,13 +48,30 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    noInfo: false,
+    overlay: false,
+    open: false,
+    contentBase: ["../../../www/"],
   },
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  // Ensure we find loaders associated with this project
+  resolveLoader: {
+    modules: [
+      path.resolve(__dirname, "node_modules"),
+      "node_modules"
+    ]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jquery: 'jquery',
+      'window.jQuery': 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

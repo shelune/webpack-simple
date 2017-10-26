@@ -24,6 +24,11 @@
       "type": "confirm",
       "message": "Use jquery?",
       "default": false
+    },
+    "body": {
+      "type": "string",
+      "required": true,
+      "label": "Body class for this campaign?"
     }
   },
   "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}"

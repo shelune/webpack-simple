@@ -17,4 +17,11 @@ export default {
 <style lang="scss">
 @import "./style/_shared.scss";
 
+.{{ body }} {
+  &.overlay-opened {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 </style>

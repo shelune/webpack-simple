@@ -38,6 +38,24 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          name: 'assets/[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        loader: "url-loader",
+        options: {
+          name: 'assets/[name].[ext]?[hash]'
+        }
       }
     ]
   },
